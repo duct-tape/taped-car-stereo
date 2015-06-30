@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Mount USB
+sudo mount /dev/sda1 /media/msc -o uid=pi,gid=pi
+
+# Build playlist
+find /media/msc/ -name '*.flac'  > /media/msc/playlist.txt
+
+# Start playing
+/usr/bin/mplayer  -shuffle -playlist /media/msc/playlist.txt
